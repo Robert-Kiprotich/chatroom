@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="{% static 'css/base.css' %}">
+		<link rel="stylesheet" href="{% static 'css/base.scss' %}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	</head>
+<body>
+	
+	<center><h1>Hello , Welcome to my chat site ! {{request.user}}</h1></center>
+	<br>
+	{% if request.user.is_authenticated %}
+	<center> Logout the chat Page <a href = "{% url 'logout-user' %}">Logout</a></center>
+	{% endif %}
+
+
+
+
+
+	<!-- <div
+	class="chat__item__container"
+	id="id_chat_item_container"
+	style="font-size: 20px"
+	>
+	<br />
+	<input type="text" id="chat-input" />
+	<button type="submit" id="chat-submit">Send Message</button>
+	<br />
+	<br />
+	</div> -->
+
+	
+<div class="floating-chat">
+    <i class="fa fa-comments" aria-hidden="true"></i>
+    <div class="chat" id="id_chat_item_container">
+        <div class="header">
+            <span class="title">
+                what's on your mind?
+            </span>
+            <button>
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+                         
+        </div>
+	
+        <ul class="messages" >
+             
+        </ul>
+	
+        <div class="footer">
+            <div class="text-box" contenteditable="true" disabled="true" ></div>
+            <button id="sendMessage">send</button>
+        </div>
+    </div>
+</div>
+
+
+</div>
+	<script>
+	// const chatSocket = new WebSocket("ws://" + window.location.host + "/");
+	// chatSocket.onopen = function (e) {
+	// 	console.log("The connection was setup successfully !");
+	// };
+	// chatSocket.onclose = function (e) {
+	// 	console.log("Something unexpected happened !");
+	// };
+	// document.querySelector("#chat-input").focus();
+	// document.querySelector("#chat-input").onkeyup = function (e) {
+	// 	if (e.keyCode == 13) {
+	// 	document.querySelector("#chat-submit").click();
+	// 	}
+	// };
+	// document.querySelector("#chat-submit").onclick = function (e) {
+	// 	var messageInput = document.querySelector(
+	// 	"#chat-input"
+	// 	).value;
+	// 	chatSocket.send(JSON.stringify({ message: messageInput, username : "{{request.user.username}}"}));
+	// };
+	// chatSocket.onmessage = function (e) {
+	// 	const data = JSON.parse(e.data);
+	// 	var div = document.createElement("div");
+	// 	var msgInput = data.username + " : " + data.message;
+	// 	 document.querySelector("#chat-input").value = "";
+		
+	// 	var msgs = document.querySelector("#messages")
+	// 	var ms = document.createElement('li')
+	// 	var txt = document.createTextNode(msgInput);
+	// 	// ms.text=msgInput
+	// 	ms.appendChild(txt)
+	// 	msgs.appendChild(ms) //append('<li class="other">' + msgInput + '</li>')
+
+		
+			
+			 
+
+    // messagesContainer.finish().animate({
+    //     scrollTop: messagesContainer.prop("scrollHeight")
+    // }, 250);
+//}
+
+
+
+// function onMetaAndEnter(event) {
+//     if ((event.metaKey || event.ctrlKey) && event.keyCode == 13) {
+//         sendNewMessage();
+//     }
+// }
+
+
+	</script>
+
+
+</body>
+<script>
+	var username ='{{request.user.username}}'
+</script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</html>
